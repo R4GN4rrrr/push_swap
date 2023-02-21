@@ -18,16 +18,18 @@ SOURCES = push_swap.c\
 		libft/ft_putstr_fd.c\
 		algo_sort.c\
 		utils2.c\
+		libft/ft_isdigit.c\
+		utils3.c\
 
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = cc
 
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall -fsanitize=address
 
 
 $(NAME) : $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) #-fsanitize=address
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 
 all : $(NAME)
 

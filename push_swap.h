@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:35:05 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/19 04:04:02 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/21 04:41:05 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,11 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b);
 void	print_list(t_stack *head);
 int		ft_pos(t_stack *head, int x);
 void	check_digit(char	**str);
+int		ft_find_max(t_stack *stack);
+int		*reference_tab(t_stack *stack);
+void	send_big_to_top(t_stack **stack);
+void	push_a_to_b(t_stack  **stack_a, t_stack **stack_b, int *tab, int range);
+void	send_big_to_top(t_stack **stack);
+void	sort_hundred(t_stack **stack_a, t_stack **stack_b, int range);
+
 #endif

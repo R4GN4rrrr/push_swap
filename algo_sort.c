@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 03:25:03 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/19 04:24:22 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/21 05:29:10 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,17 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b)
 	while(*stack_b)
 		pa(stack_a, stack_b);
 
+}
+
+void	sort_hundred(t_stack **stack_a, t_stack **stack_b, int range)
+{
+	int *tab;
+
+	tab = reference_tab(*stack_a);
+	push_a_to_b(stack_a, stack_b, tab, range);
+	while (*stack_b)
+	{
+		send_big_to_top(stack_b);
+		pa(stack_a, stack_b);
+	}	
 }

@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 04:44:57 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/19 04:02:18 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/21 05:12:16 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,26 @@ int ft_find_min(t_stack *stack)
 	return (x);
 }
 
+int ft_find_max(t_stack *stack)
+{
+	int y;
+	int i = 0;
+	int max = 0;
+
+	y = stack->value;
+	while (stack)
+	{
+		if (y < stack->value)
+		{
+			y = stack->value;
+			max = i;
+		}
+		stack = stack->next;
+		i++;
+	}
+	return (max);
+}
+
 int ft_pos(t_stack *stack_a, int x)
 {
 	int i;
@@ -37,6 +57,15 @@ int ft_pos(t_stack *stack_a, int x)
 		stack_a = stack_a->next;
 	}
 	return (i);
+}
+
+int len(char *str)
+{
+	int i;
+	i = 0;
+	while (str[i])
+		i++;
+	return i;
 }
 void	check_digit(char	**str)
 {
@@ -61,7 +90,9 @@ void	check_digit(char	**str)
 				m++;
 			j++;
 		}
-		if (p > 1 || m > 1)
+		if (len(str[i]) == 1 && (str[i][0] < '0' || str[i][0] > '9'))
+			print_error();
+		if (p > 1 || m > 1 )
 			print_error();
 		i++;
 	}

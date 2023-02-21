@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 08:52:11 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/19 04:27:18 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/21 05:48:45 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,12 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 		sort_two(stack_a);
 	else if (stack_size == 3)
 		sort_three(stack_a);
-	else if (stack_size > 3 && !sorted(*stack_a))
+	else if (stack_size > 3 &&  stack_size < 6 && !sorted(*stack_a))
 		sort_five(stack_a, stack_b);
+	else if (stack_size <= 100 && !sorted(*stack_a))
+		sort_hundred(stack_a, stack_b, 15);
+	else if (stack_size <= 500 && !sorted(*stack_a))
+		sort_hundred(stack_a, stack_b, 40);
 }
 int main(int ac, char **av)
 {    
@@ -63,6 +67,6 @@ int main(int ac, char **av)
 		check_digit(sep);
 		fill_stack_a(&stack_a, sep);
 		push_swap(&stack_a, &stack_b);
-		//print_list(stack_a);
+		print_list(stack_a);
 	}
 }

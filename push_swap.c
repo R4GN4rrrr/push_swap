@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 08:52:11 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/21 05:48:45 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 02:37:52 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,12 @@ int main(int ac, char **av)
 			i++;
 		}
 		sep = ft_split(numbers, ' ');
+		free(numbers);
 		check_digit(sep);
 		fill_stack_a(&stack_a, sep);
+		free(sep);
 		push_swap(&stack_a, &stack_b);
-		print_list(stack_a);
+		system("leaks push_swap");
+		//print_list(stack_a);
 	}
 }

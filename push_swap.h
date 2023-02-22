@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:35:05 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/21 04:41:05 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 02:09:31 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void	send_big_to_top(t_stack **stack);
 void	push_a_to_b(t_stack  **stack_a, t_stack **stack_b, int *tab, int range);
 void	send_big_to_top(t_stack **stack);
 void	sort_hundred(t_stack **stack_a, t_stack **stack_b, int range);
+int		sorted(t_stack *stack);
 
 #endif

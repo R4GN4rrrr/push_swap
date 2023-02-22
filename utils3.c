@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 02:41:00 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/21 05:48:31 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 00:57:20 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	push_a_to_b(t_stack  **stack_a, t_stack **stack_b, int *tab, int range)
 			rb(stack_b);
 			i++;
 		}
-		else if ((*stack_a)->value > tab[i] && (*stack_a)->value <= tab[i + range])
+		else if ((*stack_a)->value > tab[i] && (*stack_a)->value <= tab[range + i])
 		{
 			pb(stack_a, stack_b);
 			i++;

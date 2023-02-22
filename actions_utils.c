@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 22:58:36 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/18 02:18:57 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 01:04:22 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ void	ft_putstr(char *str)
 void	print_error(void)
 {
 	ft_putstr_fd ("Error\n", 2);
-	exit(0);
+	exit(1);
 }

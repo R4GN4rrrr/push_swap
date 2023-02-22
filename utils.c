@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 22:45:06 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/21 05:48:14 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 02:39:07 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,13 @@ void    fill_stack_a(t_stack **stack_a, char **sep)
 	while (sep[i])
 	{
 	   ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(sep[i])));
+	   free(sep[i]);
 	   i++;
 	}
 	check_dup(*stack_a);
 }
 
-int	*reference_tab(t_stack *stack)
+int *reference_tab(t_stack *stack)
 {
 	int	*tab;
 	int	size;
@@ -83,7 +84,7 @@ int	*reference_tab(t_stack *stack)
 	i = 0;
 	tmp = 0;
 	size = ft_lstsize(stack);
-	tab = malloc((size) * 4);
+	tab = malloc((size) * sizeof(int));
 	while (stack)
 	{
 		tab[i] = stack->value;
@@ -91,10 +92,10 @@ int	*reference_tab(t_stack *stack)
 		i++;
 	}
 	i = 0;
-	while (i < size - 1)
+	while (i < size)
 	{
 		j = i + 1;
-		while (j < size - 1)
+		while (j < size)
 		{
 			if (tab[i] > tab[j])
 			{

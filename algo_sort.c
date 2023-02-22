@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 03:25:03 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/21 05:29:10 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 02:33:18 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
 	int x; 
 
-	while (ft_lstsize(*stack_a) > 3)
+	while (ft_lstsize(*stack_a) > 3 && ft_lstsize(*stack_a) < 6)
 	{
 		x = ft_find_min(*stack_a);
 		while (x != (*stack_a)->value)

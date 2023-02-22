@@ -6,13 +6,12 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 22:58:36 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 01:04:22 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 04:13:47 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//Returns the last element of the stack.
 t_stack	*get_stack_bottom(t_stack *stack)
 {
 	while (stack && stack->next != NULL)
@@ -20,8 +19,6 @@ t_stack	*get_stack_bottom(t_stack *stack)
 	return (stack);
 }
 
-
-//Returns the second to last element of the stack.
 t_stack	*get_stack_before_bottom(t_stack *stack)
 {
 	while (stack && stack->next && stack->next->next != NULL)

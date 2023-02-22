@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 22:45:06 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 05:44:15 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 04:52:10 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-int	ft_lstsize(t_stack *stack_a)
+int ft_lstsize(t_stack *stack_a)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (stack_a)
@@ -24,11 +24,10 @@ int	ft_lstsize(t_stack *stack_a)
 	}
 	return (i);
 }
-
-int	*in_array(t_stack *stack_a)
+int *in_array(t_stack *stack_a)
 {
-	int	i;
-	int	*arr;
+	int i;
+	int *arr;
 
 	i = 0;
 	arr = malloc(4 * ft_lstsize(stack_a));
@@ -41,16 +40,14 @@ int	*in_array(t_stack *stack_a)
 	return (arr);
 }
 
-void	check_dup(t_stack *stack_a)
+void    check_dup(t_stack *stack_a)
 {
-	int	*arr;
-	int	size;
-	int	i;
-	int	j;
+	int *arr;
+	int size = ft_lstsize(stack_a);
 
 	arr = in_array(stack_a);
-	size = ft_lstsize(stack_a);
-	i = 0;
+	int i = 0;
+	int j ;
 	while (i < size)
 	{
 		j = i + 1;
@@ -63,54 +60,30 @@ void	check_dup(t_stack *stack_a)
 		i++;
 	}
 }
-
-void	fill_stack_a(t_stack **stack_a, char **sep)
+void    fill_stack_a(t_stack **stack_a, char **sep)
 {
-	int	i;
+	int i = 0;
 
-	i = 0;
 	while (sep[i])
 	{
-		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(sep[i])));
-		free(sep[i]);
-		i++;
+	   ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(sep[i])));
+	   free(sep[i]);
+	   i++;
 	}
 	check_dup(*stack_a);
 }
 
-int	*reference_tab(t_stack *stack)
+void ft_lstadd_back(t_stack **lst, t_stack *new)
 {
-	int	*tab;
-	int	size;
-	int	i;
-	int	j;
-	int	tmp;
+	t_stack	*courant;
 
-	i = 0;
-	tmp = 0;
-	size = ft_lstsize(stack);
-	tab = malloc((size) * sizeof(int));
-	while (stack)
+	courant = *lst;
+	if (!*lst)
+		*lst = new;
+	else
 	{
-		tab[i] = stack->value;
-		stack = stack->next;
-		i++;
+		while (courant -> next)
+			courant = courant -> next;
+		courant -> next = new;
 	}
-	i = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (tab[i] > tab[j])
-			{
-				tmp = tab[i];
-				tab[i] = tab[j];
-				tab[j] = tmp;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (tab);
 }

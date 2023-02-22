@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 23:46:47 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/17 22:50:15 by ymenyoub         ###   ########.fr       */
+/*   Created: 2023/02/16 22:57:32 by ymenyoub          #+#    #+#             */
+/*   Updated: 2023/02/22 04:18:35 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-t_stack *ft_lstnew(int value)
+static void	swap(t_stack *stack)
 {
-    t_stack *head;
-    
-    head = (t_stack *)malloc(sizeof(t_stack));
-    if (!head)
-        return (NULL);
-    head->value = value;
-    head->next = NULL;
-    return (head);
+	int	tmp;
+
+	if (stack == NULL || stack->next == NULL)
+		return ;
+	tmp = stack->value;
+	stack->value = stack->next->value;
+	stack->next->value = tmp;
+}
+
+void	sa(t_stack **stack_a)
+{
+	swap(*stack_a);
+}
+
+void	sb(t_stack **stack_b)
+{
+	swap(*stack_b);
+}
+
+void	ss(t_stack **stack_a, t_stack **stack_b)
+{
+	swap(*stack_a);
+	swap(*stack_b);;
 }

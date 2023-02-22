@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 22:57:21 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 04:08:33 by ymenyoub         ###   ########.fr       */
+/*   Created: 2023/02/16 22:58:01 by ymenyoub          #+#    #+#             */
+/*   Updated: 2023/02/22 04:18:25 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-static void	push(t_stack **src, t_stack **dest)
+static void	rotate(t_stack **stack)
 {
 	t_stack	*tmp;
+	t_stack	*last;
 
-	if (*src == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	tmp = (*src)->next;
-	(*src)->next = *dest;
-	*dest = *src;
-	*src = tmp;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	last = get_stack_bottom(*stack);
+	tmp->next = NULL;
+	last->next = tmp;
 }
 
-void	pa(t_stack **stack_a, t_stack **stack_b)
+void	ra(t_stack **stack_a)
 {
-	push(stack_b, stack_a);
-	ft_putstr("pa\n");
+	rotate(stack_a);
 }
 
-void	pb(t_stack **stack_a, t_stack **stack_b)
+void	rb(t_stack **stack_b)
 {
-	push(stack_a, stack_b);
-	ft_putstr("pb\n");
+	rotate(stack_b);
+}
+
+void	rr(t_stack **stack_a, t_stack **stack_b)
+{
+	rotate(stack_a);
+	rotate(stack_b);
 }

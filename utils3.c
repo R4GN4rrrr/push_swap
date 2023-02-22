@@ -6,16 +6,43 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 02:41:00 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 00:57:20 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 05:35:49 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
+{
+	t_stack	*content;
+
+	content = *lst;
+	if (!*lst)
+		*lst = new;
+	else
+	{
+		while (content -> next)
+			content = content -> next;
+		content -> next = new;
+	}
+}
+
+t_stack	*ft_lstnew(int value)
+{
+	t_stack	*head;
+
+	head = (t_stack *)malloc(sizeof(t_stack));
+	if (!head)
+		return (NULL);
+	head->value = value;
+	head->next = NULL;
+	return (head);
+}
+
 void	send_big_to_top(t_stack **stack)
 {
-	int i;
-	int size;
+	int	i;
+	int	size;
 
 	while (1)
 	{
@@ -30,9 +57,9 @@ void	send_big_to_top(t_stack **stack)
 	}
 }
 
-void	push_a_to_b(t_stack  **stack_a, t_stack **stack_b, int *tab, int range)
+void	push_a_to_b(t_stack **stack_a, t_stack **stack_b, int *tab, int range)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (*stack_a)
@@ -43,13 +70,13 @@ void	push_a_to_b(t_stack  **stack_a, t_stack **stack_b, int *tab, int range)
 			rb(stack_b);
 			i++;
 		}
-		else if ((*stack_a)->value > tab[i] && (*stack_a)->value <= tab[range + i])
+		else if ((*stack_a)->value > tab[i]
+			&& (*stack_a)->value <= tab[range + i])
 		{
 			pb(stack_a, stack_b);
 			i++;
 		}
 		else
 			ra(stack_a);
-
 	}
 }

@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   actions_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 01:25:30 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/16 02:00:31 by ymenyoub         ###   ########.fr       */
+/*   Created: 2023/02/16 22:58:36 by ymenyoub          #+#    #+#             */
+/*   Updated: 2023/02/22 04:50:59 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "push_swap_bonus.h"
 
-typedef struct s_list
+t_stack	*get_stack_bottom(t_stack *stack)
 {
-void *content;
-struct s_list *next;
-} t_list;
+	while (stack && stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
 
-void ft_lstadd_front(t_list **lst, t_list *new)
+t_stack	*get_stack_before_bottom(t_stack *stack)
 {
-    new->next = *lst;
-	*lst = new;
+	while (stack && stack->next && stack->next->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
+
+void	print_error(void)
+{
+	ft_putstr_fd ("Error\n", 2);
+	exit(1);
 }

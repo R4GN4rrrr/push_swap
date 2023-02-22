@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*   rev_rotate_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 22:58:23 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 04:53:55 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 04:53:20 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-//Brings the bottom element of a stack to the top.
 static void	rev_rotate(t_stack **stack)
 {
 	t_stack	*tmp;
@@ -32,18 +31,15 @@ static void	rev_rotate(t_stack **stack)
 void	rra(t_stack **stack_a)
 {
 	rev_rotate(stack_a);
-	ft_putstr("rra\n");
 }
 
 void	rrb(t_stack **stack_b)
 {
 	rev_rotate(stack_b);
-	ft_putstr("rrb\n");
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	rev_rotate(stack_a);
 	rev_rotate(stack_b);
-	ft_putstr("rrr\n");
 }

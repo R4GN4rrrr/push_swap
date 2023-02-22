@@ -6,21 +6,21 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 08:52:11 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 02:37:52 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 05:52:03 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    print_list(t_stack *head)
-{
-	while (head)
-	{
-		printf("%d - ",head->value);
-		head = head->next;
-	}
-	printf("\n");
-}
+// void    print_list(t_stack *head)
+// {
+// 	while (head)
+// 	{
+// 		printf("%d - ",head->value);
+// 		head = head->next;
+// 	}
+// 	printf("\n");
+// }
 int	sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
@@ -31,30 +31,36 @@ int	sorted(t_stack *stack)
 	}
 	return (1);
 }
+
 void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
-	int stack_size;
+	int	stack_size;
 
 	stack_size = ft_lstsize(*stack_a);
 	if (stack_size == 2 && !sorted(*stack_a))
 		sort_two(stack_a);
 	else if (stack_size == 3)
 		sort_three(stack_a);
-	else if (stack_size > 3 &&  stack_size < 6 && !sorted(*stack_a))
+	else if (stack_size > 3 && stack_size < 6 && !sorted(*stack_a))
 		sort_five(stack_a, stack_b);
 	else if (stack_size <= 100 && !sorted(*stack_a))
 		sort_hundred(stack_a, stack_b, 15);
 	else if (stack_size <= 500 && !sorted(*stack_a))
-		sort_hundred(stack_a, stack_b, 40);
+		sort_hundred(stack_a, stack_b, 36);
 }
-int main(int ac, char **av)
-{    
-	int i = 1;
-	char **sep;
-	t_stack *stack_a = NULL;
-	t_stack *stack_b = NULL;
-	char *numbers;
+
+int	main(int ac, char **av)
+{
+	int		i;
+	char	**sep;
+	t_stack	*stack_b;
+	t_stack	*stack_a;
+	char	*numbers;
+
+	i = 1;
 	numbers = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
 	if (ac >= 2)
 	{
 		while (av[i])
@@ -69,7 +75,7 @@ int main(int ac, char **av)
 		fill_stack_a(&stack_a, sep);
 		free(sep);
 		push_swap(&stack_a, &stack_b);
-		system("leaks push_swap");
+		//system("leaks push_swap");
 		//print_list(stack_a);
 	}
 }

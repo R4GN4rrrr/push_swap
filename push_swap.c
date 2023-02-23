@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 08:52:11 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 05:52:03 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/23 04:25:38 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ int	main(int ac, char **av)
 	{
 		while (av[i])
 		{
+			int j = 0;
+			while (av[i][j] == ' ')
+				j++;
+			if (!av[i][j])
+				print_error();
 			numbers = ft_strjoin(numbers, av[i]);
 			numbers = ft_strjoin(numbers, " ");
 			i++;

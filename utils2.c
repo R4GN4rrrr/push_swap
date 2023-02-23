@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 04:44:57 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 05:29:53 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/23 04:25:02 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,6 @@ void	check_digit(char	**str)
 	int	m;
 
 	i = 0;
-	if (!str[0])
-		print_error();
 	while (str[i])
 	{
 		j = 0;
@@ -93,7 +91,7 @@ void	check_digit(char	**str)
 				print_error();
 			if (str[i][j] == '+')
 				p++;
-			if (str[i][j] == '-')
+			else if (str[i][j] == '-')
 				m++;
 			j++;
 		}

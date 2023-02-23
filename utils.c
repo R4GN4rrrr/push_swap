@@ -6,24 +6,11 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 22:45:06 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 05:44:15 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/23 01:22:48 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_lstsize(t_stack *stack_a)
-{
-	int	i;
-
-	i = 0;
-	while (stack_a)
-	{
-		stack_a = stack_a->next;
-		i++;
-	}
-	return (i);
-}
 
 int	*in_array(t_stack *stack_a)
 {
@@ -78,25 +65,14 @@ void	fill_stack_a(t_stack **stack_a, char **sep)
 	check_dup(*stack_a);
 }
 
-int	*reference_tab(t_stack *stack)
+int	*sort_tab(int *tab, int size)
 {
-	int	*tab;
-	int	size;
 	int	i;
 	int	j;
 	int	tmp;
 
 	i = 0;
 	tmp = 0;
-	size = ft_lstsize(stack);
-	tab = malloc((size) * sizeof(int));
-	while (stack)
-	{
-		tab[i] = stack->value;
-		stack = stack->next;
-		i++;
-	}
-	i = 0;
 	while (i < size)
 	{
 		j = i + 1;
@@ -113,4 +89,22 @@ int	*reference_tab(t_stack *stack)
 		i++;
 	}
 	return (tab);
+}
+
+int	*reference_tab(t_stack *stack)
+{
+	int	*tab;
+	int	size;
+	int	i;
+
+	i = 0;
+	size = ft_lstsize(stack);
+	tab = malloc((size) * sizeof(int));
+	while (stack)
+	{
+		tab[i] = stack->value;
+		stack = stack->next;
+		i++;
+	}
+	return (sort_tab(tab, size));
 }

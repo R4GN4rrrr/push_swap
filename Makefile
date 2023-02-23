@@ -1,7 +1,7 @@
 NAME = push_swap
 
 
-NAME_BONUS = push_swap_bonus
+NAME_BONUS = checker
 
 SOURCES = push_swap.c\
 		push.c\
@@ -22,13 +22,24 @@ SOURCES = push_swap.c\
 		libft/ft_putstr_fd.c\
 		libft/ft_isdigit.c\
 
-SOURCES_BONUS = actions_utils_bonus.c\
-			push_bonus.c\
-			rev_rotate_bonus.c\
-			rotate_bonus.c\
-			swap_bonus.c\
-			utils2_bonus.c\
-			utils_bonus.c\
+SOURCES_BONUS = bonus/actions_utils_bonus.c\
+			bonus/get_next_line.c\
+			bonus/get_next_line_utils.c\
+			bonus/push_bonus.c\
+			bonus/push_swap_bonus.c\
+			bonus/rev_rotate_bonus.c\
+			bonus/rotate_bonus.c\
+			bonus/swap_bonus.c\
+			bonus/utils2_bonus.c\
+			bonus/utils_bonus.c\
+			libft/ft_split.c\
+			libft/ft_atoi.c\
+			libft/ft_strlen.c\
+			libft/ft_memcpy.c\
+			libft/ft_putstr_fd.c\
+			libft/ft_isdigit.c\
+			libft/ft_strjoin.c\
+			libft/ft_strdup.c\
 			
 
 
@@ -49,6 +60,8 @@ $(NAME_BONUS) : $(OBJECTS_BONUS)
 
 
 all : $(NAME)
+
+bonus : $(NAME_BONUS)
 
 clean :
 	rm -f $(OBJECTS)

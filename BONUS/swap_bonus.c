@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 22:57:32 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 04:18:35 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/23 04:47:13 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ void	sb(t_stack **stack_b)
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(*stack_a);
-	swap(*stack_b);;
+	swap(*stack_b);
 }

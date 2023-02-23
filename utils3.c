@@ -6,11 +6,24 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 02:41:00 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 05:35:49 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/22 23:25:35 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_lstsize(t_stack *stack_a)
+{
+	int	i;
+
+	i = 0;
+	while (stack_a)
+	{
+		stack_a = stack_a->next;
+		i++;
+	}
+	return (i);
+}
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {

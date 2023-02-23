@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 22:58:36 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/22 04:50:59 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/23 04:11:10 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,19 @@ void	print_error(void)
 {
 	ft_putstr_fd ("Error\n", 2);
 	exit(1);
+}
+
+int	sorted(t_stack *stack)
+{
+	if (stack)
+	{
+		while (stack->next != NULL)
+		{
+			if (stack->value > stack->next->value)
+				return (0);
+			stack = stack->next;
+		}
+		return (1);
+	}
+	return (0);
 }

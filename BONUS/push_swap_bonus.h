@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 04:14:23 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/23 04:46:02 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/24 05:13:39 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ int		ft_strrchr(char *s);
 char	*get_next_line(int fd);
 char	*ft_strdupp(char *s1);
 size_t	ft_strlenn(char *s);
+int		ft_isdigit(int c);
 #endif

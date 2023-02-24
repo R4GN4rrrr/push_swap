@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 08:52:11 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/23 04:25:38 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/24 05:11:50 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int	main(int ac, char **av)
 		free(numbers);
 		check_digit(sep);
 		fill_stack_a(&stack_a, sep);
-		free(sep);
 		push_swap(&stack_a, &stack_b);
 		//system("leaks push_swap");
 		//print_list(stack_a);

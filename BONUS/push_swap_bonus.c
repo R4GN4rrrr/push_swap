@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 04:44:01 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/23 04:04:54 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/24 05:21:51 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ int	main(int ac, char **av)
 		free(numbers);
 		check_digit(sep);
 		fill_stack_a(&stack_a, sep);
-		free(sep);
 		input_readed(&stack_a, &stack_b);
 		if (sorted(stack_a) && stack_b == NULL)
 			write(1, "OK\n", 3);
 		else
 			write(1, "KO\n", 3);
 	}
+
 }

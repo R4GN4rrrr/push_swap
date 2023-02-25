@@ -6,16 +6,12 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 04:14:23 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/24 05:13:39 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/25 01:30:28 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
-
-# ifndef BUFFER_SIZE 
-#  define BUFFER_SIZE 5
-# endif
 
 # include <stddef.h>
 # include <stdlib.h>

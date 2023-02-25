@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 22:45:06 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/23 01:22:48 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:11:10 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	check_dup(t_stack *stack_a)
 		}
 		i++;
 	}
+	free(arr);
 }
 
 void	fill_stack_a(t_stack **stack_a, char **sep)
@@ -59,7 +60,6 @@ void	fill_stack_a(t_stack **stack_a, char **sep)
 	while (sep[i])
 	{
 		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(sep[i])));
-		free(sep[i]);
 		i++;
 	}
 	check_dup(*stack_a);

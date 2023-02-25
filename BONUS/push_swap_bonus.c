@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 04:44:01 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/24 05:21:51 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/25 01:44:14 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,31 +53,41 @@ void	input_readed(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-int	main(int ac, char **av)
+char	*parse(char **av)
 {
 	int		i;
-	char	**sep;
-	t_stack	*stack_b;
-	t_stack	*stack_a;
+	int		j;
 	char	*numbers;
 
 	i = 1;
+	numbers = NULL;
+	while (av[i])
+	{
+		j = 0;
+		while (av[i][j] == ' ')
+			j++;
+		if (!av[i][j])
+			print_error();
+		numbers = ft_strjoin(numbers, av[i]);
+		numbers = ft_strjoin(numbers, " ");
+		i++;
+	}
+	return (numbers);
+}
+
+int	main(int ac, char **av)
+{
+	char	**sep;
+	char	*numbers;
+	t_stack	*stack_b;
+	t_stack	*stack_a;
+
 	numbers = NULL;
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac >= 2)
 	{
-		while (av[i])
-		{
-			int j = 0;
-			while (av[i][j] == ' ')
-				j++;
-			if (!av[i][j])
-				print_error();
-			numbers = ft_strjoin(numbers, av[i]);
-			numbers = ft_strjoin(numbers, " ");
-			i++;
-		}
+		numbers = parse(av);
 		sep = ft_split(numbers, ' ');
 		free(numbers);
 		check_digit(sep);
@@ -88,5 +98,4 @@ int	main(int ac, char **av)
 		else
 			write(1, "KO\n", 3);
 	}
-
 }

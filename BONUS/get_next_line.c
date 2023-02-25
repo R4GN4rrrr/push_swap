@@ -6,11 +6,15 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:37:05 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/23 04:54:49 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/25 01:31:06 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+#ifndef BUFFER_SIZE 
+# define BUFFER_SIZE 5
+#endif
 
 char	*ft_add_join(int fd, char *saved)
 {

@@ -6,21 +6,12 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 08:52:11 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/24 05:11:50 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/25 01:33:14 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void    print_list(t_stack *head)
-// {
-// 	while (head)
-// 	{
-// 		printf("%d - ",head->value);
-// 		head = head->next;
-// 	}
-// 	printf("\n");
-// }
 int	sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
@@ -49,37 +40,45 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 		sort_hundred(stack_a, stack_b, 36);
 }
 
-int	main(int ac, char **av)
+char	*parse(char **av)
 {
 	int		i;
-	char	**sep;
-	t_stack	*stack_b;
-	t_stack	*stack_a;
+	int		j;
 	char	*numbers;
 
 	i = 1;
+	numbers = NULL;
+	while (av[i])
+	{
+		j = 0;
+		while (av[i][j] == ' ')
+			j++;
+		if (!av[i][j])
+			print_error();
+		numbers = ft_strjoin(numbers, av[i]);
+		numbers = ft_strjoin(numbers, " ");
+		i++;
+	}
+	return (numbers);
+}
+
+int	main(int ac, char **av)
+{
+	char	**sep;
+	char	*numbers;
+	t_stack	*stack_b;
+	t_stack	*stack_a;
+
 	numbers = NULL;
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac >= 2)
 	{
-		while (av[i])
-		{
-			int j = 0;
-			while (av[i][j] == ' ')
-				j++;
-			if (!av[i][j])
-				print_error();
-			numbers = ft_strjoin(numbers, av[i]);
-			numbers = ft_strjoin(numbers, " ");
-			i++;
-		}
+		numbers = parse(av);
 		sep = ft_split(numbers, ' ');
 		free(numbers);
 		check_digit(sep);
 		fill_stack_a(&stack_a, sep);
 		push_swap(&stack_a, &stack_b);
-		//system("leaks push_swap");
-		//print_list(stack_a);
 	}
 }

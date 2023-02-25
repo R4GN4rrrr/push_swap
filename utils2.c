@@ -6,7 +6,7 @@
 /*   By: ymenyoub <ymenyoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 04:44:57 by ymenyoub          #+#    #+#             */
-/*   Updated: 2023/02/24 05:39:23 by ymenyoub         ###   ########.fr       */
+/*   Updated: 2023/02/24 11:37:30 by ymenyoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,6 @@ int	ft_pos(t_stack *stack_a, int x)
 	return (i);
 }
 
-int	len(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 void	check_digit(char	**str)
 {
 	int	i;
@@ -84,15 +74,13 @@ void	check_digit(char	**str)
 		{
 			if (!ft_isdigit(str[i][++j]))
 				print_error();
-		}	
+		}
 		while (str[i][j])
 		{
 			if (!ft_isdigit(str[i][j]))
 				print_error();
 			j++;
 		}
-		// if (len(str[i]) == 1 && (str[i][0] < '0' || str[i][0] > '9'))
-		// 	print_error();
 		i++;
 	}
 }
